@@ -3,3 +3,13 @@ const data=[
     {title:'ROULETTE',desc:'룰렛(roulette)은 주로 카지노에서 행해지는 도박의 한 종류며 테이블 게임으로 분류된다.플레이어가 원하는 곳에 칩을 베팅하고, 딜러는 사발 모양의 회전 기구에 쇠구슬을 떨어뜨려서 그 쇠구슬이 멈춘 숫자에 따라 승패 및 배당이 결정된다.',img:'https://www.luxurylifestylemag.co.uk/wp-content/uploads/2021/01/bigstock-People-Gambling-At-Roulette-Po-337664587.jpg',clip:'https://www.youtube.com/embed/Gcy3_HhFbyY',link:''},
     {title:'SLOT MACHINE',desc:'카지노 등 도박시설에 배치되어 있는 도박기기 중 하나이다.화폐나 칩을 넣고 레버를 당기거나 버튼을 누르면 화면에 있는 무늬가 돌아가는데, 크레딧의 라인과 당첨의 조합이 일치하면 돈을 따고, 그렇지 않은 경우 돈을 잃는다.',img:'https://www.leelanausandscasino.com/images/content/interior/hot_ice.jpg',clip:'https://www.youtube.com/embed/dRPcJyisLUI',link:''},
 ]
+const jcode=(
+    <div>
+        <h1>{data[0].title}</h1>
+        <div>
+            <p>{data[0].desc}</p>
+            <img src="{data[0].img}" alt="blackjack" />
+            
+        </div>
+    </div>
+)
