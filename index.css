@@ -2,8 +2,11 @@
 html,body{margin: 0;padding: 0;}
 html{overflow: hidden;}
 body *{outline: 1px solid black;}
-.menu{width: 100%;height: 100px;display: flex;justify-content: space-between;position: fixed;top: 0;}
-.li{width: 20%;height: 100%;justify-content: center;align-items: center;display: flex;}
+.menu{width: 100%;height: 100px;display: flex;justify-content: space-evenly;position: fixed;top: 0;}
+.li{width: 20%;height: 100%;justify-content: center;align-items: center;display: flex;cursor: pointer;}
 .main{width: 400%;height: calc(100vh - 200px);display: flex;position: absolute;top: 100px;}
 .each{flex: 1;}
+.bx{display: flex;gap: 0 30px;}
+.bx p{height: 100px;}
+.bx img{width: 300px;width: 300px;}
 .foot{width: 100%;height: 100px;position: fixed;bottom: 0;}
