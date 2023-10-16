@@ -79,4 +79,4 @@ let lcode=(
     </React.Fragment>
 )
 // console.log(lcode)
-ReactDOM.render(lcode,document.querySelectorAll('.each')[4])
+// ReactDOM.render(lcode,document.querySelectorAll('.each')[4])
