@@ -48,3 +48,26 @@ li.forEach((a,b)=>{
         window.scrollTo(window.innerWidth*page,0)
     }
 })
+let ucode=(
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+)
+const lcode=(
+    <React.Fragment>
+        <table>
+            <thead>
+                <tr>
+                    <th>이미지</th>
+                    <th>상품명</th>
+                    <th>가격</th>
+                </tr>
+            </thead>
+            <tbody>
+                {}
+            </tbody>
+        </table>
+    </React.Fragment>
+)
