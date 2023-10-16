@@ -54,13 +54,14 @@ const shdt=[
     {img:'https://www.eventprophire.com/wp-content/uploads/2018/10/SN4693-Wheel-of-Fortune-Party-Game-Black-Frame-_event_prop_hire_284_Optimised.jpg',name:'대형 뽑기 룰렛판 행사용 돌려돌려 돌림판',price:'23230'},
     {img:'https://i.ytimg.com/vi/tveZIrxgJoQ/maxresdefault.jpg',name:'슬롯 머신 저금통 중형사이즈 복불복게임',price:'10000'},
 ]
-let ucode=shdt.map(k=>{
+let ucode=shdt.map(k=>
     <tr>
         <td>{k.img}</td>
         <td>{k.name}</td>
         <td>{k.price}</td>
     </tr>
-})
+)
+// console.log(ucode)
 let lcode=(
     <React.Fragment>
         <table>
@@ -77,4 +78,5 @@ let lcode=(
         </table>
     </React.Fragment>
 )
+// console.log(lcode)
 ReactDOM.render(lcode,document.querySelectorAll('.each')[4])
