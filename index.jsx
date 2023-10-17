@@ -64,9 +64,9 @@ const upcode=function (q,w) {
         <table>
             <thead>
                 <tr>
-                    <th>number</th>
-                    <th>title</th>
-                    <th>content</th>
+                    <th>이미지</th>
+                    <th>상품명</th>
+                    <th>가격(원)</th>
                 </tr>
             </thead>
             <tbody>
