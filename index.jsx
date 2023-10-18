@@ -61,17 +61,7 @@ const upcode=function (q,w) {
         <td>${m.price}</td>
     </tr>`)
     w.innerHTML=`
-        <h1>game item shop</h1>
-        <div class="mvbx">
-            <select class="slt1">
-                <option value="new">new</option>
-                <option value="old">old</option>
-                <option value="high">high</option>
-                <option value="low">low</option>
-            </select>
-            <input type=""text>
-            <button>검색</button>
-        </div>
+        
         <table>
             <thead>
                 <tr>
@@ -104,5 +94,5 @@ const upcode=function (q,w) {
 //     </React.Fragment>
 // )
 // console.log(lcode)
-upcode(shdt,document.querySelectorAll('.each')[4])
+upcode(shdt,document.querySelector('.tb'))
 // ReactDOM.render(upcode(),document.querySelectorAll('.each')[4])
