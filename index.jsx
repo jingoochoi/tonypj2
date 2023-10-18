@@ -30,7 +30,7 @@ function Code(a) {
             <h1>{data[a.num].title}</h1>
             <div className="bx">
                 <p>{data[a.num].desc}</p>
-                <img src={`${data[a.num].img}`} alt="blackjack" />
+                <img src={`${data[a.num].img}`} alt="game" />
                 <div className="aa" onClick={know}>show how to play</div>
                 <div className="bb" onClick={gogo}>go to play test game</div>
             </div>
