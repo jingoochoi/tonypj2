@@ -40,8 +40,9 @@ b{position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);font-siz
 .aa{grid-column: 1/2;display: flex;justify-content: center;align-items: center;cursor: pointer;background-color: cornflowerblue;width: 200px;border-radius: 30px;height: 44px;}
 .bb{display: flex;justify-content: center;align-items: center;background-color: cornflowerblue;width: 200px;border-radius: 45px;cursor: pointer;height: 44px;}
 /* select{margin: 0 auto;} */
-.mvbx{display: flex;justify-content: center;}
-.slt1{width: 100px;text-align: center;}
+.mvbx{display: flex;justify-content: center;max-width: calc(200px*2);margin: 0 auto;}
+.slt1{width: 100px;text-align: center;margin-left: auto;}
+.each:last-child button{cursor: pointer;}
 /* .ipbx{text-align: center;} */
 table{margin: 0 auto;text-align: center;border-collapse: collapse;margin-top: 30px;}
 table img{width: 130px;height: 130px;}
