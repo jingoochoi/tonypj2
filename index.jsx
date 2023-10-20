@@ -101,7 +101,7 @@ const tb=document.querySelector('.tb')
 slt1.addEventListener('change',cgft)
 function cgft() {
     if (slt1.value=='high') {
-        shdt.sort((p,q)=>{p.price==q.price?0:p.price>q.price?1:-1})
+        shdt.sort((p,q)=>{shdt[p.price]==shdt[q.price]?0:shdt[p.price]>shdt[q.price]?1:-1})
         shdt.reverse()
         upcode(shdt,tb)
     }
