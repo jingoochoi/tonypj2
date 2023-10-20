@@ -101,7 +101,15 @@ const tb=document.querySelector('.tb')
 const iptt=document.querySelector('#iptt')
 const scbt=document.querySelector('.scbt')
 const rsbt=document.querySelector('.rsbt')
-
+scbt.addEventListener('click',()=>{
+    let nary=shdt.filter(o=>{
+        if (o.name.indexOf(iptt.value)!=-1) {
+            return true
+        }
+    })
+    upcode(nary,tb)
+    iptt.value=''
+})
 slt1.addEventListener('change',cgft)
 function cgft() {
     if (slt1.value=='new') {
