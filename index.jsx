@@ -49,10 +49,10 @@ li.forEach((a,b)=>{
     }
 })
 const shdt=[
-    {id:1,img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIboodX14wCxyAFgqyoTt1pwBJV36V5_qB4Q&usqp=CAU',name:'국제규격 마카오 카지노칩 포커칩 컬러칩 100P 세트',price:'13300'},
-    {id:2,img:'https://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B000C0ZABW&Format=_SL250_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=automaticpoke-20&language=en_US',name:'부드러운 고급 마술카드 글래모어 너겟 명품 카지노 스타일 보드게임 트럼프카드',price:'11000'},
-    {id:3,img:'https://www.eventprophire.com/wp-content/uploads/2018/10/SN4693-Wheel-of-Fortune-Party-Game-Black-Frame-_event_prop_hire_284_Optimised.jpg',name:'대형 뽑기 룰렛판 행사용 돌려돌려 돌림판',price:'23230'},
-    {id:4,img:'https://i.ytimg.com/vi/tveZIrxgJoQ/maxresdefault.jpg',name:'슬롯 머신 저금통 중형사이즈 복불복게임',price:'10000'},
+    {id:1,img:'https://m.media-amazon.com/images/I/81pfZixiDrL.jpg',name:'국제규격 마카오 카지노칩 포커칩 컬러칩 100P 세트',price:'13300'},
+    {id:2,img:'https://www.chroniclebooks.com/cdn/shop/products/5055923781012.jpg?v=1618357009',name:'부드러운 고급 마술카드 글래모어 너겟 명품 카지노 스타일 보드게임 트럼프카드',price:'11000'},
+    {id:3,img:'https://iprint.express/media/catalog/product/cache/69fb0ceebfc362df676aec7508ef3a24/i/p/iprint_express_wheel_of_fortune_stand1200_1200.jpg',name:'대형 뽑기 룰렛판 행사용 돌려돌려 돌림판',price:'23230'},
+    {id:4,img:'https://media.kohlsimg.com/is/image/kohls/3400791?wid=600&hei=600&op_sharpen=1',name:'슬롯 머신 저금통 중형사이즈 복불복게임',price:'10000'},
 ]
 const upcode=function (q,w) {
     let hcode=q.map(m=>`<tr>
@@ -98,11 +98,33 @@ upcode(shdt,document.querySelector('.tb'))
 // ReactDOM.render(upcode(),document.querySelectorAll('.each')[4])
 const slt1=document.querySelector('.slt1')
 const tb=document.querySelector('.tb')
+const iptt=document.querySelector('#iptt')
+const scbt=document.querySelector('.scbt')
+const rsbt=document.querySelector('.rsbt')
+
 slt1.addEventListener('change',cgft)
 function cgft() {
+    if (slt1.value=='new') {
+        shdt.sort((p,q)=>{return p.id-q.id})
+        // shdt.reverse()
+        upcode(shdt,tb)
+    }
+    if (slt1.value=='old') {
+        shdt.sort((p,q)=>{return p.id-q.id})
+        shdt.reverse()
+        upcode(shdt,tb)
+    }
     if (slt1.value=='high') {
-        shdt.sort((p,q)=>{shdt[p.price]==shdt[q.price]?0:shdt[p.price]>shdt[q.price]?1:-1})
+        shdt.sort((p,q)=>{return p.price-q.price})
+        shdt.reverse()
+        upcode(shdt,tb)
+    }
+    if (slt1.value=='low') {
+        shdt.sort((p,q)=>{return p.price-q.price})
         // shdt.reverse()
         upcode(shdt,tb)
     }
 }
+rsbt.addEventListener('click',()=>{
+    location.reload()
+})
