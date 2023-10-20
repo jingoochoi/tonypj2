@@ -49,10 +49,10 @@ li.forEach((a,b)=>{
     }
 })
 const shdt=[
-    {id:1,img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIboodX14wCxyAFgqyoTt1pwBJV36V5_qB4Q&usqp=CAU',name:'국제규격 마카오 카지노칩 포커칩 컬러칩 100P 세트',price:13300},
-    {id:2,img:'https://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B000C0ZABW&Format=_SL250_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=automaticpoke-20&language=en_US',name:'부드러운 고급 마술카드 글래모어 너겟 명품 카지노 스타일 보드게임 트럼프카드',price:11000},
-    {id:3,img:'https://www.eventprophire.com/wp-content/uploads/2018/10/SN4693-Wheel-of-Fortune-Party-Game-Black-Frame-_event_prop_hire_284_Optimised.jpg',name:'대형 뽑기 룰렛판 행사용 돌려돌려 돌림판',price:23230},
-    {id:4,img:'https://i.ytimg.com/vi/tveZIrxgJoQ/maxresdefault.jpg',name:'슬롯 머신 저금통 중형사이즈 복불복게임',price:10000},
+    {id:1,img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIboodX14wCxyAFgqyoTt1pwBJV36V5_qB4Q&usqp=CAU',name:'국제규격 마카오 카지노칩 포커칩 컬러칩 100P 세트',price:'13300'},
+    {id:2,img:'https://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B000C0ZABW&Format=_SL250_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=automaticpoke-20&language=en_US',name:'부드러운 고급 마술카드 글래모어 너겟 명품 카지노 스타일 보드게임 트럼프카드',price:'11000'},
+    {id:3,img:'https://www.eventprophire.com/wp-content/uploads/2018/10/SN4693-Wheel-of-Fortune-Party-Game-Black-Frame-_event_prop_hire_284_Optimised.jpg',name:'대형 뽑기 룰렛판 행사용 돌려돌려 돌림판',price:'23230'},
+    {id:4,img:'https://i.ytimg.com/vi/tveZIrxgJoQ/maxresdefault.jpg',name:'슬롯 머신 저금통 중형사이즈 복불복게임',price:'10000'},
 ]
 const upcode=function (q,w) {
     let hcode=q.map(m=>`<tr>
