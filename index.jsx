@@ -96,3 +96,13 @@ const upcode=function (q,w) {
 // console.log(lcode)
 upcode(shdt,document.querySelector('.tb'))
 // ReactDOM.render(upcode(),document.querySelectorAll('.each')[4])
+const slt1=document.querySelector('.slt1')
+const tb=document.querySelector('.tb')
+slt1.addEventListener('change',cgft)
+function cgft() {
+    if (slt1.value=='high') {
+        shdt.sort((p,q)=>{shdt[p.price]==shdt[q.price]?0:shdt[p.price]>shdt[q.price]?1:-1})
+        shdt.reverse()
+        upcode(shdt,tb)
+    }
+}
