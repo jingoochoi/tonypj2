@@ -47,6 +47,11 @@ li.forEach((a,b)=>{
     a.onclick=function () {
         page=b
         window.scrollTo(window.innerWidth*page,0)
+        if (page==b) {
+            // 
+            $('title').html(a.innerHTML+' / What is game?')
+        }else $('title').remove(a.innerHTML)
+        // console.log(a.innerHTML)
     }
 })
 const shdt=[
