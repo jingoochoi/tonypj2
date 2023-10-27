@@ -23,8 +23,8 @@ function Code(a) {
     const know=function () {
         window.open(`${data[a.num].clip}`,'',`width=${window.innerWidth/2},height=${window.innerHeight/2},top=${window.innerHeight/4},left=${window.innerWidth/4}`)
     }
-    const gogo=function () {
-        window.open('','',`width=${window.innerWidth},height=${window.innerHeight}`)
+    const gogo=function (p) {
+        // console.log(p)
     }
     return(
         <React.Fragment>
@@ -51,8 +51,18 @@ li.forEach((a,b)=>{
             // 
             $('title').html($('.each h1')[b].innerHTML)
         }else $('title').remove($('.each h1')[b].innerHTML)
-        console.log($('.each h1')[b].innerHTML)
+        // console.log($('.each h1')[b].innerHTML)
+        // console.log()
+        // $('.each .bb')[b-1].click(function () {
+        //     // console.log(this)
+        // })
     }
+})
+$('.main .bb').click((a)=>{
+    
+    console.log($('.each').find('h1'))
+    // open()
+    
 })
 const shdt=[
     {id:1,img:'https://m.media-amazon.com/images/I/81pfZixiDrL.jpg',name:'국제규격 마카오 카지노칩 포커칩 컬러칩 100P 세트',price:'13300'},
