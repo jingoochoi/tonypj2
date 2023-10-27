@@ -10,7 +10,7 @@ const mcode=(
         <div className="chop">100,000</div>
         <div className="chop">100,000</div>
         <div className="chop">100,000</div>
-        <b>What is game?</b>
+        <h1>What is game?</h1>
     </React.Fragment>
 )
 ReactDOM.render(mcode,document.querySelectorAll('.each')[0])
@@ -49,9 +49,9 @@ li.forEach((a,b)=>{
         window.scrollTo(window.innerWidth*page,0)
         if (page==b) {
             // 
-            $('title').html(a.innerHTML+' / What is game?')
-        }else $('title').remove(a.innerHTML)
-        // console.log(a.innerHTML)
+            $('title').html($('.each h1')[b].innerHTML)
+        }else $('title').remove($('.each h1')[b].innerHTML)
+        console.log($('.each h1')[b].innerHTML)
     }
 })
 const shdt=[
