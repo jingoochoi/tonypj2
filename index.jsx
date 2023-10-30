@@ -24,7 +24,7 @@ function Code(a) {
         window.open(`${data[a.num].clip}`,'',`width=${window.innerWidth/2},height=${window.innerHeight/2},top=${window.innerHeight/4},left=${window.innerWidth/4}`)
     }
     const gogo=function (p) {
-        // console.log(p)
+        // console.log($('.li').eq(p).html())
     }
     return(
         <React.Fragment>
@@ -51,19 +51,13 @@ li.forEach((a,b)=>{
             // 
             $('title').html($('.each h1')[b].innerHTML)
         }else $('title').remove($('.each h1')[b].innerHTML)
-        // console.log($('.each h1')[b].innerHTML)
-        // console.log()
-        // $('.each .bb')[b-1].click(function () {
-        //     // console.log(this)
-        // })
+      
     }
+    $('.bb').eq(b).click(function () {
+        console.log($('.li')[b+1])
+    })
 })
-$('.main .bb').click(function(a){
-    // console.log($('.main .bb').eq(1).html())
-    console.log($('.li').eq(this).html())
-    // open()
-    
-})
+
 const shdt=[
     {id:1,img:'https://m.media-amazon.com/images/I/81pfZixiDrL.jpg',name:'국제규격 마카오 카지노칩 포커칩 컬러칩 100P 세트',price:'13300'},
     {id:2,img:'https://www.chroniclebooks.com/cdn/shop/products/5055923781012.jpg?v=1618357009',name:'부드러운 고급 마술카드 글래모어 너겟 명품 카지노 스타일 보드게임 트럼프카드',price:'11000'},
