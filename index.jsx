@@ -58,9 +58,9 @@ li.forEach((a,b)=>{
         // })
     }
 })
-$('.main .bb').click((a)=>{
-    
-    console.log($('.game h1').eq(a).html())
+$('.main .bb').click(function(a){
+    // console.log($('.main .bb').eq(1).html())
+    console.log($('.li').eq(this).html())
     // open()
     
 })
