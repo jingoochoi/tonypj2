@@ -54,7 +54,7 @@ li.forEach((a,b)=>{
       
     }
     $('.bb').eq(b).click(function () {
-        console.log($('.li')[b+1])
+        console.log($('.li').eq(b+1).html())
     })
 })
 
