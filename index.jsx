@@ -60,7 +60,7 @@ li.forEach((a,b)=>{
 })
 $('.main .bb').click((a)=>{
     
-    console.log($('.each').find('h1'))
+    console.log($('.game h1').eq(a).html())
     // open()
     
 })
