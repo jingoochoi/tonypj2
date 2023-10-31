@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TONY WEB</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
+        html,body{margin: 0;padding: 0;}
+        html{scroll-behavior: auto;overflow: hidden;}
+        .four{display: grid;width: 200%;height: 200%;grid-template-columns: repeat(2,1fr);grid-template-rows: repeat(2,100vh);position: relative;}
+        .each{width: 100%;height: 100%;text-align: center;font-size: 1000%;}
+        .each:first-child{background-color: green;position: relative;}
+        span{position: absolute;top: 50%;left: 50%;width: 430px;height: 400px;transform: translate(-50%,-50%);text-shadow: 0 0 10px aquamarine;color: aquamarine;animation: neon .5s linear  infinite alternate ;font-family: 'Courgette', cursive;font-weight: bold;}
+        @keyframes neon {
+            to{text-shadow: 0 0 30px aquamarine;}
+        }
+        .key1{font-size: 2rem;position: fixed;bottom: 0;left: 0;right: 0;z-index: 333;}
+        .cred{display: flex;font-size: 30%;position: fixed;bottom: 10%;left: 50%;transform: translateX(-50%);z-index: 333;}
+        .cred p{margin: 0;}
+        .rtt1{position: absolute;bottom: 0;right: 0;font-size: 3rem;}
+        .each:nth-child(2){background-color: yellow;position: relative;}
+        .each:nth-child(2) h1{font-size: 50%;}
+        .lavel{position: absolute;left: 30%;display: flex;flex-direction: column;top: 50%;transform: translateY(-50%);}
+        #rl{margin-top: 10px;}
+        .choi{border: 1px solid #000;margin-top: 100px;}
+        .rldl{position: absolute;right: 20%;font-size: 30%;top: 50%;transform: translateY(-50%);}
+        .rlrs{font-size: 30%;position: absolute;bottom: 20%;left: 50%;transform: translateX(-50%);cursor: pointer;}
+        /* .rldl h3{} */
+        .each:nth-child(3){background-color: blue;font-size: 3rem;position: relative;}
+        .box1{position: absolute;top: 30%;left: 30%;}
+        .box2{position: absolute;top: 30%;right: 30%;}
+        button{cursor: pointer;height: 30px;border-radius: none;border: none;width: 100px;}
+        .sult{position: absolute;bottom: 30%;left: 0;right: 0;cursor: pointer;}
+        .rtt3{position: absolute;top: 0;right: 0;font-size: 3rem;}
+        .each:last-child{background-color: red;position: relative;}
+        .each:last-child h1{font-size: 33%;}
+        .mcbx{display: flex;position: absolute;top: 30%;left: 50%;transform: translateX(-50%);gap: 0 300px;}
+        .slbt{position: absolute;bottom: 40%;left: 50%;transform: translateX(-50%);}
+        .srst{font-size: 30%;position: absolute;bottom: 20%;left: 50%;transform: translateX(-50%);}
+    </style>
+    
+    
+</head>
+<body>
+    <div class="four">
+        <div class="each">
+            <span>TONY<br>WEB</span>
+            <div class="cred">
+                <p>chip=</p>
+                <div class="chip">0</div>
+            </div>
+        </div>
+        <div class="each">
+            <h1>🎆ROULETTE🎆</h1>
+            <div class="lavel">
+                <select name="rl" id="rl">
+                    <option value="number">number</option>
+                </select>
+                <button class="choi">choice</button>
+            </div>
+            <div class="rldl">
+                <h3>The number is:</h3>
+                <div class="rlnb">0</div>
+            </div>
+            <div class="rlrs"></div>
+        </div>
+        <div class="each">
+            <h1>🃏BLACK JACK🃏</h1>
+            <div class="box1">
+                <div class="tit1">player</div>
+                <div class="play">0</div>
+                <div class="bt">
+                    <button class="hits" onclick="clft()">hit</button>
+                    <button class="stay" onclick="clft()">stay</button>
+                </div>
+            </div>
+            <div class="box2">
+                <div class="tit2">dealer</div>
+                <div class="deal">0</div>
+            </div>
+            <div class="sult"></div>
+            
+        </div>
+        <div class="each">
+            <h1>🎰SLOT MACHINE🎰</h1>
+            <div class="mcbx">
+                <div class="sln1">0</div>
+                <div class="sln2">0</div>
+                <div class="sln3">0</div>
+            </div>
+            <button class="slbt">spin</button>
+            <div class="srst">0</div>
+        </div>
+    </div>
+    <script>
+        console.log("%c🃏","background-image: linear-gradient(to bottom right,red,orange,yellow,green,blue,darkblue,violet); line-height: 2; padding: 30px; font-size: 30px")
+        // console.log(location.href)
+        let prmt=location.href
+        prmt=prmt.split('?')[1]
+        prmt=prmt.split('=')[1]
+        // console.log(prmt)
+        document.addEventListener('DOMContentLoaded',kdft)
+        
+        let chip=document.querySelector('.chip')
+        let coin=10
+        chip.innerHTML=coin
+        function kdft() {
+                if (prmt=='roulette') {
+                    window.scrollTo(window.innerWidth,0)
+                }
+                if (prmt=='slotmachine') {
+                    window.scrollTo(window.innerWidth,window.innerHeight)
+                }
+                if (prmt=='blackjack') {
+                    window.scrollTo(0,window.innerHeight)
+                }
+        }
+        window.addEventListener('DOMContentLoaded',rlft)
+        let rl=document.querySelector('#rl')
+        let choi=document.querySelector('.choi')
+        let rlrs=document.querySelector('.rlrs')
+        function rlft() {
+            for (let i = 0; i < 36; i++) {
+                rl.innerHTML+=`
+                <option value="${i+1}">${i+1}</option>
+                `
+                
+            }
+            choi.onclick=function(){
+                let spin=Math.ceil(Math.random()*36)
+                document.querySelector('.rlnb').innerHTML=spin
+                // console.log(rl.value)
+                if (spin==rl.value) {
+                    rlrs.innerHTML=`🎉you win🎉<br>click here to reset`
+                    coin+=35
+                    chip.innerHTML=coin
+            }else if(spin!=rl.value){rlrs.innerHTML=`😭you lose😭<br>click here to reset`;coin--;chip.innerHTML=coin;
+            if (coin<1) {
+                alert('BANKRUPT!!!!')
+                coin=10
+                chip.innerHTML=coin
+            }}
+            }
+            rlrs.onclick=function(){
+                rlrs.innerHTML=''
+                document.querySelector('.rlnb').innerHTML=0
+            }
+            // console.log(coin)
+            
+        }
+        window.addEventListener('DOMContentLoaded',clft)
+        let play=document.querySelector('.play')
+        let sult=document.querySelector('.sult')
+        let pose=0
+        let jack=0
+        // console.log(play,draw)
+        function clft() {
+            
+            document.querySelector('.hits').onclick=function(){
+                jack++
+                let draw=Math.ceil(Math.random()*10+1)
+                if (pose>10&&draw==11) {
+                    draw=draw-10
+                }
+                pose+=draw
+                if (jack==2&&pose==21) {
+                    sult.innerHTML=`🎉black jack🎉<br>click here to reset`
+                    coin+=3
+                    chip.innerHTML=coin
+                }
+                // console.log(pose,draw)
+                play.innerHTML=pose
+                if (pose>21) {
+                    sult.innerHTML=`burst.<br>click here to reset`
+                    coin-=2
+                    chip.innerHTML=coin
+                    if (coin<1) {
+                alert('BANKRUPT!!!!')
+                coin=10
+                chip.innerHTML=coin
+            }
+                }
+            }
+            document.querySelector('.stay').onclick=function(){
+                let card=Math.ceil(Math.random()*10+16)
+                // console.log(card)
+                document.querySelector('.deal').innerHTML=card
+                if (card>21) {
+                    sult.innerHTML=`dealer burst. you win.<br>click here to reset`
+                    coin+=2
+                    chip.innerHTML=coin
+                    return
+                }
+                if (pose>card) {
+                    sult.innerHTML=`you win.<br>click here to reset`
+                    coin+=2
+                    chip.innerHTML=coin
+                }
+                if (pose==card) {
+                    sult.innerHTML=`push (means draw).<br>click here to reset`
+                }
+                if (pose<card) {
+                    sult.innerHTML=`dealer win. you lose.<br>click here to reset`
+                    coin-=2
+                    chip.innerHTML=coin
+                    if (coin<1) {
+                alert('BANKRUPT!!!!')
+                coin=10
+                chip.innerHTML=coin
+            }
+                }
+            }
+            sult.onclick=function(){
+                play.innerHTML='0'
+                pose=0
+                jack=0
+                document.querySelector('.deal').innerHTML='0'
+                sult.innerHTML=''
+            }
+        }
+        window.addEventListener('click',function () {
+            const slbt=document.querySelector('.slbt')
+            let sln1=document.querySelector('.sln1')
+            let sln2=document.querySelector('.sln2')
+            let sln3=document.querySelector('.sln3')
+            const srst=document.querySelector('.srst')
+            slbt.onclick=function(){
+                sln1.innerHTML=Math.ceil(Math.random()*9)
+                sln2.innerHTML=Math.ceil(Math.random()*9)
+                sln3.innerHTML=Math.ceil(Math.random()*9)
+                if (sln1.innerHTML==sln2.innerHTML&&sln2.innerHTML==sln3.innerHTML) {
+                    srst.innerHTML=`🎉JACK POT🎉.congratulations<br>click here to reset`
+                    coin+=100
+                    chip.innerHTML=coin
+                }
+                else{
+                    srst.innerHTML=`T.T...I wish you good luck next time<br>click here to reset`
+                    coin-=1
+                    chip.innerHTML=coin
+                    if (coin<1) {
+                        alert('BANKRUPT!!!!')
+                        coin=10
+                        chip.innerHTML=coin
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

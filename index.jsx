@@ -54,7 +54,11 @@ li.forEach((a,b)=>{
       
     }
     $('.bb').eq(b).click(function () {
-        console.log($('.li').eq(b+1).html())
+        let url1=$('.li').eq(b+1).html()
+        // console.log(url)
+        let url2='tony.html?game='+url1
+        console.log(url2)
+        open(url2)
     })
 })
 
