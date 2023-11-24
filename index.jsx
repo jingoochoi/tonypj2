@@ -171,7 +171,7 @@ function Shopping() {
                     <option value="high">가격 높은순</option>
                     <option value="low">가격 낮은순</option>
                 </select>
-                <button className="rsbt">리셋</button>
+                <button className="rsbt" onClick={rset}>리셋</button>
         </React.Fragment>
     )
 }
