@@ -68,28 +68,28 @@ const shdt=[
     {id:3,img:'https://iprint.express/media/catalog/product/cache/69fb0ceebfc362df676aec7508ef3a24/i/p/iprint_express_wheel_of_fortune_stand1200_1200.jpg',name:'대형 뽑기 룰렛판 행사용 돌려돌려 돌림판',price:'23230'},
     {id:4,img:'https://media.kohlsimg.com/is/image/kohls/3400791?wid=600&hei=600&op_sharpen=1',name:'슬롯 머신 저금통 중형사이즈 복불복게임',price:'10000'},
 ]
-const upcode=function (q,w) {
-    let hcode=q.map(m=>`<tr>
-        <td><img src="${m.img}"></td>
-        <td>${m.name}</td>
-        <td>${m.price}</td>
-    </tr>`)
-    w.innerHTML=`
+// const upcode=function (q,w) {
+//     let hcode=q.map(m=>`<tr>
+//         <td><img src="${m.img}"></td>
+//         <td>${m.name}</td>
+//         <td>${m.price}</td>
+//     </tr>`)
+//     w.innerHTML=`
         
-        <table>
-            <thead>
-                <tr>
-                    <th>이미지</th>
-                    <th>상품명</th>
-                    <th>가격(원)</th>
-                </tr>
-            </thead>
-            <tbody>
-                ${hcode.join('')}
-            </tbody>
-        </table>
-    `
-}
+//         <table>
+//             <thead>
+//                 <tr>
+//                     <th>이미지</th>
+//                     <th>상품명</th>
+//                     <th>가격(원)</th>
+//                 </tr>
+//             </thead>
+//             <tbody>
+//                 ${hcode.join('')}
+//             </tbody>
+//         </table>
+//     `
+// }
 // console.log(ucode)
 // let lcode=(
 //     <React.Fragment>
@@ -108,7 +108,39 @@ const upcode=function (q,w) {
 //     </React.Fragment>
 // )
 // console.log(lcode)
-upcode(shdt,document.querySelector('.tb'))
+function Tbodyshop() {
+    return(
+        <React.Fragment>
+            {shdt.map((a)=>
+                <tr>
+                    <td><img src={a.img} alt="shop image" /></td>
+                    <td>{a.name}</td>
+                    <td>{a.price}</td>
+                </tr>
+            )}
+        </React.Fragment>
+    )
+}
+function Tabletpc() {
+    return(
+        <React.Fragment>
+            <table>
+                <thead>
+                    <tr>
+                        <th>이미지</th>
+                        <th>상품명</th>
+                        <th>가격</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <Tbodyshop></Tbodyshop>
+                </tbody>
+            </table>
+        </React.Fragment>
+    )
+}
+// upcode(shdt,document.querySelector('.tb'))
+ReactDOM.render(<Tabletpc></Tabletpc>,document.querySelector('.tb'))
 // ReactDOM.render(upcode(),document.querySelectorAll('.each')[4])
 const slt1=document.querySelector('.slt1')
 const tb=document.querySelector('.tb')
@@ -121,7 +153,7 @@ scbt.addEventListener('click',()=>{
             return true
         }
     })
-    upcode(nary,tb)
+    // upcode(nary,tb)
     if (nary.length==0) {
         document.querySelector('.tb').innerHTML=`<span>검색결과가 없습니다</span>`
     }
@@ -132,22 +164,22 @@ function cgft() {
     if (slt1.value=='new') {
         shdt.sort((p,q)=>{return p.id-q.id})
         // shdt.reverse()
-        upcode(shdt,tb)
+        // upcode(shdt,tb)
     }
     if (slt1.value=='old') {
         shdt.sort((p,q)=>{return p.id-q.id})
         shdt.reverse()
-        upcode(shdt,tb)
+        // upcode(shdt,tb)
     }
     if (slt1.value=='high') {
         shdt.sort((p,q)=>{return p.price-q.price})
         shdt.reverse()
-        upcode(shdt,tb)
+        // upcode(shdt,tb)
     }
     if (slt1.value=='low') {
         shdt.sort((p,q)=>{return p.price-q.price})
         // shdt.reverse()
-        upcode(shdt,tb)
+        // upcode(shdt,tb)
     }
 }
 rsbt.addEventListener('click',()=>{
