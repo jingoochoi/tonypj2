@@ -108,6 +108,74 @@ const shdt=[
 //     </React.Fragment>
 // )
 // console.log(lcode)
+function Eachrich() {
+    return(
+        <React.Fragment>
+            <h1>GAME ITEM SHOP</h1>
+            <div className="mvbx">
+                <Shopping></Shopping>
+            </div>
+            <div className="tb">
+                <Tabletpc></Tabletpc>
+            </div>
+        </React.Fragment>
+    )
+}
+ReactDOM.render(<Eachrich></Eachrich>,document.querySelectorAll('.each')[4])
+function Shopping() {
+    const clcl=()=>{
+        let nary=shdt.filter(o=>{
+            if (o.name.indexOf(iptt.value)!=-1) {
+                return true
+            }
+        })
+        // upcode(nary,tb)
+        if (nary.length==0) {
+            document.querySelector('.tb').innerHTML=`<span>검색결과가 없습니다</span>`
+        }
+        iptt.value=''
+    }
+    const chan=()=>{
+        if (slt1.value=='new') {
+            shdt.sort((p,q)=>{return p.id-q.id})
+            // shdt.reverse()
+            // upcode(shdt,tb)
+        }
+        if (slt1.value=='old') {
+            shdt.sort((p,q)=>{return p.id-q.id})
+            shdt.reverse()
+            // upcode(shdt,tb)
+        }
+        if (slt1.value=='high') {
+            shdt.sort((p,q)=>{return p.price-q.price})
+            shdt.reverse()
+            // upcode(shdt,tb)
+        }
+        if (slt1.value=='low') {
+            shdt.sort((p,q)=>{return p.price-q.price})
+            // shdt.reverse()
+            // upcode(shdt,tb)
+        }
+    }
+    const rset=()=>{
+        location.reload()
+    }
+    return(
+        <React.Fragment>
+            <input type="text" id="iptt" name="iptt"/>
+                <button className="scbt" onClick={clcl}>검색</button>
+                <select className="slt1" onChange={chan}>
+                    <option value="0">option</option>
+                    <option value="new">최신입점순</option>
+                    <option value="old">기존입점순</option>
+                    <option value="high">가격 높은순</option>
+                    <option value="low">가격 낮은순</option>
+                </select>
+                <button className="rsbt">리셋</button>
+        </React.Fragment>
+    )
+}
+// ReactDOM.render(<Shopping></Shopping>,document.querySelector('.mvbx'))
 function Tbodyshop() {
     return(
         <React.Fragment>
@@ -140,49 +208,15 @@ function Tabletpc() {
     )
 }
 // upcode(shdt,document.querySelector('.tb'))
-ReactDOM.render(<Tabletpc></Tabletpc>,document.querySelector('.tb'))
+// ReactDOM.render(<Tabletpc></Tabletpc>,document.querySelector('.tb'))
 // ReactDOM.render(upcode(),document.querySelectorAll('.each')[4])
 const slt1=document.querySelector('.slt1')
 const tb=document.querySelector('.tb')
 const iptt=document.querySelector('#iptt')
 const scbt=document.querySelector('.scbt')
 const rsbt=document.querySelector('.rsbt')
-scbt.addEventListener('click',clcl)
-function clcl(){
-    let nary=shdt.filter(o=>{
-        if (o.name.indexOf(iptt.value)!=-1) {
-            return true
-        }
-    })
-    // upcode(nary,tb)
-    if (nary.length==0) {
-        document.querySelector('.tb').innerHTML=`<span>검색결과가 없습니다</span>`
-    }
-    iptt.value=''
-}
-slt1.addEventListener('change',char)
-function char() {
-    if (slt1.value=='new') {
-        shdt.sort((p,q)=>{return p.id-q.id})
-        // shdt.reverse()
-        // upcode(shdt,tb)
-    }
-    if (slt1.value=='old') {
-        shdt.sort((p,q)=>{return p.id-q.id})
-        shdt.reverse()
-        // upcode(shdt,tb)
-    }
-    if (slt1.value=='high') {
-        shdt.sort((p,q)=>{return p.price-q.price})
-        shdt.reverse()
-        // upcode(shdt,tb)
-    }
-    if (slt1.value=='low') {
-        shdt.sort((p,q)=>{return p.price-q.price})
-        // shdt.reverse()
-        // upcode(shdt,tb)
-    }
-}
-rsbt.addEventListener('click',()=>{
-    location.reload()
-})
+// scbt.addEventListener('click',clcl)
+
+// slt1.addEventListener('change',char)
+
+// rsbt.addEventListener('click',rset)
