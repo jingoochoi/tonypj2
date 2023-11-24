@@ -130,6 +130,7 @@ function Shopping() {
             }
         })
         // upcode(nary,tb)
+        
         if (nary.length==0) {
             document.querySelector('.tb').innerHTML=`<span>검색결과가 없습니다</span>`
         }
@@ -177,9 +178,10 @@ function Shopping() {
 }
 // ReactDOM.render(<Shopping></Shopping>,document.querySelector('.mvbx'))
 function Tbodyshop() {
+    let seld=shdt
     return(
         <React.Fragment>
-            {shdt.map((a)=>
+            {seld.map((a)=>
                 <tr>
                     <td><img src={a.img} alt="shop image" /></td>
                     <td>{a.name}</td>
