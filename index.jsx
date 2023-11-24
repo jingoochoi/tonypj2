@@ -147,7 +147,8 @@ const tb=document.querySelector('.tb')
 const iptt=document.querySelector('#iptt')
 const scbt=document.querySelector('.scbt')
 const rsbt=document.querySelector('.rsbt')
-scbt.addEventListener('click',()=>{
+scbt.addEventListener('click',clcl)
+function clcl(){
     let nary=shdt.filter(o=>{
         if (o.name.indexOf(iptt.value)!=-1) {
             return true
@@ -158,9 +159,9 @@ scbt.addEventListener('click',()=>{
         document.querySelector('.tb').innerHTML=`<span>검색결과가 없습니다</span>`
     }
     iptt.value=''
-})
-slt1.addEventListener('change',cgft)
-function cgft() {
+}
+slt1.addEventListener('change',char)
+function char() {
     if (slt1.value=='new') {
         shdt.sort((p,q)=>{return p.id-q.id})
         // shdt.reverse()
