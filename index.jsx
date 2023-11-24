@@ -4,6 +4,7 @@ console.log("%c▶","font-size:130px;background-image:linear-gradient(to bottom,
 console.log("%cd","color:transparent;font-size:100px;padding-left:100px;padding-right:100px;background-image:linear-gradient(to bottom,blue,blue 50%,yellow 51%,yellow);line-height:170px",'\npray for Ukraine')
 // const imgcode=data[0].img
 // console.log(window.innerWidth,window.innerHeight)
+// import { ctxt } from "./ctxt.jsx"
 const mcode=(
     <React.Fragment>
         <div className="chop">100,000</div>
@@ -109,8 +110,13 @@ const shdt=[
 // )
 // console.log(lcode)
 function Eachrich() {
+    const ctxt=React.createContext()
+    const[nary,setNary]=React.useState(shdt)
+    const chch=(a)=>{
+        setNary(a)
+    }
     return(
-        <React.Fragment>
+        <ctxt.Provider value={{chch,nary}}>
             <h1>GAME ITEM SHOP</h1>
             <div className="mvbx">
                 <Shopping></Shopping>
@@ -118,11 +124,12 @@ function Eachrich() {
             <div className="tb">
                 <Tabletpc></Tabletpc>
             </div>
-        </React.Fragment>
+        </ctxt.Provider>
     )
 }
 ReactDOM.render(<Eachrich></Eachrich>,document.querySelectorAll('.each')[4])
 function Shopping() {
+    const sakura=React.useContext(ctxt)
     const clcl=()=>{
         let nary=shdt.filter(o=>{
             if (o.name.indexOf(iptt.value)!=-1) {
