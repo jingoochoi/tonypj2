@@ -115,21 +115,6 @@ function Eachrich() {
     const chch=(a)=>{
         setNary(a)
     }
-    return(
-        <ctxt.Provider value={{chch,nary}}>
-            <h1>GAME ITEM SHOP</h1>
-            <div className="mvbx">
-                <Shopping></Shopping>
-            </div>
-            <div className="tb">
-                <Tabletpc></Tabletpc>
-            </div>
-        </ctxt.Provider>
-    )
-}
-ReactDOM.render(<Eachrich></Eachrich>,document.querySelectorAll('.each')[4])
-function Shopping() {
-    const sakura=React.useContext(ctxt)
     const clcl=()=>{
         let nary=shdt.filter(o=>{
             if (o.name.indexOf(iptt.value)!=-1) {
@@ -169,8 +154,10 @@ function Shopping() {
         location.reload()
     }
     return(
-        <React.Fragment>
-            <input type="text" id="iptt" name="iptt"/>
+        <ctxt.Provider value={{chch,nary}}>
+            <h1>GAME ITEM SHOP</h1>
+            <div className="mvbx">
+                <input type="text" id="iptt" name="iptt"/>
                 <button className="scbt" onClick={clcl}>검색</button>
                 <select className="slt1" onChange={chan}>
                     <option value="0">option</option>
@@ -180,6 +167,20 @@ function Shopping() {
                     <option value="low">가격 낮은순</option>
                 </select>
                 <button className="rsbt" onClick={rset}>리셋</button>
+            </div>
+            <div className="tb">
+                <Tabletpc></Tabletpc>
+            </div>
+        </ctxt.Provider>
+    )
+}
+ReactDOM.render(<Eachrich></Eachrich>,document.querySelectorAll('.each')[4])
+function Shopping() {
+    const sakura=React.useContext(ctxt)
+    
+    return(
+        <React.Fragment>
+            
         </React.Fragment>
     )
 }
