@@ -183,7 +183,7 @@ function Eachrich() {
     const rset=()=>{
         location.reload()
     }
-    console.log(chop)
+    console.log(chop.length)
     return(
         <React.Fragment>
             <h1>GAME ITEM SHOP</h1>
@@ -215,8 +215,9 @@ ReactDOM.render(<Eachrich></Eachrich>,document.querySelectorAll('.each')[4])
 function Tbodyshop(p) {
     let seld=p.nary
     // p.nary=p.chop
-    // let chip=p.chop()
-    // console.log(p.chop)
+    if ($('.slt1').change()) {
+        seld=p.chop
+    }
     return(
         <React.Fragment>
             {seld.map((a)=>
