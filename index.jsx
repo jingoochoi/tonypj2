@@ -110,13 +110,14 @@ const shdt=[
 // )
 // console.log(lcode)
 function Eachrich() {
-    const ctxt=React.createContext()
-    const[nary,setNary]=React.useState(shdt)
-    const chch=(a)=>{
-        setNary(a)
-    }
+    // const ctxt=React.createContext()
+    // const[nary,setNary]=React.useState(shdt)
+    // const chch=(a)=>{
+    //     setNary(a)
+    // }
+    let nary
     const clcl=()=>{
-        let nary=shdt.filter(o=>{
+        nary=shdt.filter(o=>{
             if (o.name.indexOf(iptt.value)!=-1) {
                 return true
             }
@@ -133,28 +134,32 @@ function Eachrich() {
             shdt.sort((p,q)=>{return p.id-q.id})
             // shdt.reverse()
             // upcode(shdt,tb)
+            nary=shdt
         }
         if (slt1.value=='old') {
             shdt.sort((p,q)=>{return p.id-q.id})
             shdt.reverse()
             // upcode(shdt,tb)
+            nary=shdt
         }
         if (slt1.value=='high') {
             shdt.sort((p,q)=>{return p.price-q.price})
             shdt.reverse()
             // upcode(shdt,tb)
+            nary=shdt
         }
         if (slt1.value=='low') {
             shdt.sort((p,q)=>{return p.price-q.price})
             // shdt.reverse()
             // upcode(shdt,tb)
+            nary=shdt
         }
     }
     const rset=()=>{
         location.reload()
     }
     return(
-        <ctxt.Provider value={{chch,nary}}>
+        <React.Fragment>
             <h1>GAME ITEM SHOP</h1>
             <div className="mvbx">
                 <input type="text" id="iptt" name="iptt"/>
@@ -171,7 +176,7 @@ function Eachrich() {
             <div className="tb">
                 <Tabletpc></Tabletpc>
             </div>
-        </ctxt.Provider>
+        </React.Fragment>
     )
 }
 ReactDOM.render(<Eachrich></Eachrich>,document.querySelectorAll('.each')[4])
