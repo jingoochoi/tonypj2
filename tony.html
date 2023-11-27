@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TONY WEB</title>
+    <link rel="shortcut icon" href="https://freepngimg.com/thumb/las_vegas/7-2-las-vegas-png-clipart.png" type="image/x-icon">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
         html,body{margin: 0;padding: 0;}
@@ -39,7 +40,7 @@
         .slbt{position: absolute;bottom: 40%;left: 50%;transform: translateX(-50%);}
         .srst{font-size: 30%;position: absolute;bottom: 20%;left: 50%;transform: translateX(-50%);}
     </style>
-    
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     
 </head>
 <body>
@@ -115,6 +116,7 @@
                 if (prmt=='blackjack') {
                     window.scrollTo(0,window.innerHeight)
                 }
+                $('title').text(prmt)
         }
         window.addEventListener('DOMContentLoaded',rlft)
         let rl=document.querySelector('#rl')
