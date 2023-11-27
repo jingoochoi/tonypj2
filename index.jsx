@@ -117,57 +117,64 @@ function Eachrich() {
     // const chch=(a)=>{
     //     setNary(a)
     // }
-    let nary=shdt
+    const[nary,setNary]=React.useState(shdt)
+    const[chop,setChop]=React.useState(shdt)
+    // let nary=shdt
+    // let godo
     const clcl=()=>{
-        nary=shdt.filter(o=>{
+        let godo=shdt.filter(o=>{
             if (o.name.indexOf(iptt.value)!=-1) {
                 return true
             }
         })
         // upcode(nary,tb)
-        console.log(nary)
-        if (nary.length==0) {
-            document.querySelector('.tb').innerHTML=`<span>검색결과가 없습니다</span>`
-        }
+        setNary(godo)
+        // if (nary.length==0) {
+        //     document.querySelector('.tb').innerHTML=`<span>검색결과가 없습니다</span>`
+        // }
         iptt.value=''
+        // console.log(nary)
     }
+    // console.log(nary,godo)
     const chan=()=>{
+        let coco
         if (slt1.value=='new') {
-            shdt.sort((p,q)=>{return p.id-q.id})
+            coco=shdt.sort((p,q)=>{return p.id-q.id})
             // shdt.reverse()
             // upcode(shdt,tb)
-            nary=shdt
+            setChop(coco)
         }
         if (slt1.value=='old') {
             shdt.sort((p,q)=>{return p.id-q.id})
-            shdt.reverse()
+            coco=shdt.reverse()
             // upcode(shdt,tb)
-            nary=shdt
+            setChop(coco)
         }
         if (slt1.value=='high') {
             shdt.sort((p,q)=>{return p.price-q.price})
-            shdt.reverse()
+            coco=shdt.reverse()
             // upcode(shdt,tb)
-            nary=shdt
+            setChop(coco)
         }
         if (slt1.value=='low') {
-            shdt.sort((p,q)=>{return p.price-q.price})
+            coco=shdt.sort((p,q)=>{return p.price-q.price})
             // shdt.reverse()
             // upcode(shdt,tb)
-            nary=shdt
+            setChop(coco)
         }
+        // console.log(nary)
     }
     const rset=()=>{
         location.reload()
     }
-    // console.log(nary)
+    console.log(nary)
     return(
         <React.Fragment>
             <h1>GAME ITEM SHOP</h1>
             <div className="mvbx">
                 <input type="text" id="iptt" name="iptt"/>
                 <button className="scbt" onClick={clcl}>검색</button>
-                <select className="slt1" onChange={chan}>
+                <select className="slt1" onChange={()=>chan(nary)}>
                     <option value="0">option</option>
                     <option value="new">최신입점순</option>
                     <option value="old">기존입점순</option>
@@ -177,7 +184,11 @@ function Eachrich() {
                 <button className="rsbt" onClick={rset}>리셋</button>
             </div>
             <div className="tb">
-                <Tabletpc n={nary} c={clcl}></Tabletpc>
+            {nary.length==0&&
+            <span>검색결과가 없습니다</span>}
+            {nary.length>0&&
+                <Tabletpc n={nary} c={chop}></Tabletpc>
+            }
             </div>
         </React.Fragment>
     )
@@ -187,8 +198,7 @@ ReactDOM.render(<Eachrich></Eachrich>,document.querySelectorAll('.each')[4])
 // ReactDOM.render(<Shopping></Shopping>,document.querySelector('.mvbx'))
 function Tbodyshop(p) {
     let seld=p.nary
-    // console.log(seld)
-    // p.clcl(seld)
+    // p.nary=p.chop
     return(
         <React.Fragment>
             {seld.map((a)=>
@@ -198,11 +208,12 @@ function Tbodyshop(p) {
                     <td>{a.price}</td>
                 </tr>
             )}
+            
         </React.Fragment>
     )
 }
 function Tabletpc(p) {
-    console.log(p.n)
+    // console.log(p.n)
     return(
         <React.Fragment>
             <table>
@@ -214,7 +225,7 @@ function Tabletpc(p) {
                     </tr>
                 </thead>
                 <tbody>
-                    <Tbodyshop nary={p.n} clcl={p.c}></Tbodyshop>
+                    <Tbodyshop nary={p.n} chop={p.c}></Tbodyshop>
                 </tbody>
             </table>
         </React.Fragment>
