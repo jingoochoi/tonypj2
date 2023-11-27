@@ -135,6 +135,22 @@ function Eachrich() {
         iptt.value=''
         // console.log(nary)
     }
+    const kiss=(e)=>{
+        if (e.key=='Enter') {
+            let godo=shdt.filter(o=>{
+                if (o.name.indexOf(iptt.value)!=-1) {
+                    return true
+                }
+            })
+            // upcode(nary,tb)
+            setNary(godo)
+            // if (nary.length==0) {
+            //     document.querySelector('.tb').innerHTML=`<span>검색결과가 없습니다</span>`
+            // }
+            iptt.value=''
+            // console.log(nary)
+        }
+    }
     // console.log(nary,godo)
     const chan=()=>{
         let coco
@@ -172,7 +188,7 @@ function Eachrich() {
         <React.Fragment>
             <h1>GAME ITEM SHOP</h1>
             <div className="mvbx">
-                <input type="text" id="iptt" name="iptt"/>
+                <input type="text" id="iptt" name="iptt" onKeyUp={kiss}/>
                 <button className="scbt" onClick={clcl}>검색</button>
                 <select className="slt1" onChange={()=>chan(nary)}>
                     <option value="0">option</option>
