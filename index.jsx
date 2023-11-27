@@ -200,6 +200,7 @@ function Tbodyshop(p) {
     let seld=p.nary
     // p.nary=p.chop
     // let chip=p.chop()
+    // console.log(p.chop)
     return(
         <React.Fragment>
             {seld.map((a)=>
