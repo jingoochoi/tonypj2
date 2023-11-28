@@ -118,9 +118,10 @@ function Eachrich() {
     //     setNary(a)
     // }
     const[nary,setNary]=React.useState(shdt)
-    const[chop,setChop]=React.useState(shdt)
+    const[cval,setCval]=React.useState(0)
     // let nary=shdt
     // let godo
+    let val
     const clcl=()=>{
         let godo=shdt.filter(o=>{
             if (o.name.indexOf(iptt.value)!=-1) {
@@ -152,45 +153,21 @@ function Eachrich() {
         }
     }
     // console.log(nary,godo)
-    const chan=()=>{
-        let coco
-        if (slt1.value=='new') {
-            coco=shdt.sort((p,q)=>{return p.id-q.id})
-            // shdt.reverse()
-            // upcode(shdt,tb)
-            setChop(coco)
-        }
-        if (slt1.value=='old') {
-            shdt.sort((p,q)=>{return p.id-q.id})
-            coco=shdt.reverse()
-            // upcode(shdt,tb)
-            setChop(coco)
-        }
-        if (slt1.value=='high') {
-            shdt.sort((p,q)=>{return p.price-q.price})
-            coco=shdt.reverse()
-            // upcode(shdt,tb)
-            setChop(coco)
-        }
-        if (slt1.value=='low') {
-            coco=shdt.sort((p,q)=>{return p.price-q.price})
-            // shdt.reverse()
-            // upcode(shdt,tb)
-            setChop(coco)
-        }
-        // console.log(chop)
+    const chan=(e)=>{
+        setCval(e.target.value)
+        // console.log(e.target.value)
     }
     const rset=()=>{
         location.reload()
     }
-    console.log(chop.length)
+    console.log(nary)
     return(
         <React.Fragment>
             <h1>GAME ITEM SHOP</h1>
             <div className="mvbx">
                 <input type="text" id="iptt" name="iptt" onKeyUp={kiss}/>
                 <button className="scbt" onClick={clcl}>검색</button>
-                <select className="slt1" onChange={()=>chan(nary)}>
+                <select className="slt1" onChange={chan} value={cval}>
                     <option value="0">option</option>
                     <option value="new">최신입점순</option>
                     <option value="old">기존입점순</option>
@@ -203,7 +180,7 @@ function Eachrich() {
             {nary.length==0&&
             <span>검색결과가 없습니다</span>}
             {nary.length>0&&
-                <Tabletpc n={nary} c={chop}></Tabletpc>
+                <Tabletpc n={nary} c={cval}></Tabletpc>
             }
             </div>
         </React.Fragment>
@@ -215,9 +192,32 @@ ReactDOM.render(<Eachrich></Eachrich>,document.querySelectorAll('.each')[4])
 function Tbodyshop(p) {
     let seld=p.nary
     // p.nary=p.chop
-    if ($('.slt1').change()) {
-        seld=p.chop
+    // console.log(p.cval)
+    if (p.cval=='new') {
+        seld=shdt.sort((p,q)=>{return p.id-q.id})
+        // shdt.reverse()
+        // upcode(shdt,tb)
+        
     }
+    if (p.cval=='old') {
+        shdt.sort((p,q)=>{return p.id-q.id})
+        seld=shdt.reverse()
+        // upcode(shdt,tb)
+        
+    }
+    if (p.cval=='high') {
+        shdt.sort((p,q)=>{return p.price-q.price})
+        seld=shdt.reverse()
+        // upcode(shdt,tb)
+        
+    }
+    if (p.cval=='low') {
+        seld=shdt.sort((p,q)=>{return p.price-q.price})
+        // shdt.reverse()
+        // upcode(shdt,tb)
+        
+    }
+    
     return(
         <React.Fragment>
             {seld.map((a)=>
@@ -244,7 +244,7 @@ function Tabletpc(p) {
                     </tr>
                 </thead>
                 <tbody>
-                    <Tbodyshop nary={p.n} chop={p.c}></Tbodyshop>
+                    <Tbodyshop nary={p.n} cval={p.c}></Tbodyshop>
                 </tbody>
             </table>
         </React.Fragment>
