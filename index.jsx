@@ -160,6 +160,7 @@ function Eachrich() {
     const rset=()=>{
         location.reload()
     }
+    const cart=()=>{}
     console.log(nary)
     return(
         <React.Fragment>
@@ -180,7 +181,7 @@ function Eachrich() {
             {nary.length==0&&
             <span>검색결과가 없습니다</span>}
             {nary.length>0&&
-                <Tabletpc n={nary} c={cval}></Tabletpc>
+                <Tabletpc n={nary} c={cval} j={cart}></Tabletpc>
             }
             </div>
         </React.Fragment>
@@ -193,6 +194,7 @@ function Tbodyshop(p) {
     let seld=p.nary
     // p.nary=p.chop
     // console.log(p.cval)
+    const cart=()=>{p.cart()}
     if (p.cval=='new') {
         seld=shdt.sort((p,q)=>{return p.id-q.id})
         // shdt.reverse()
@@ -222,7 +224,7 @@ function Tbodyshop(p) {
         <React.Fragment>
             {seld.map((a)=>
                 <tr>
-                    <td><img src={a.img} alt="shop image" /></td>
+                    <td><img src={a.img} alt="shop image" style={{cursor:'pointer'}} onClick={cart}/></td>
                     <td>{a.name}</td>
                     <td>{a.price}</td>
                 </tr>
@@ -244,7 +246,7 @@ function Tabletpc(p) {
                     </tr>
                 </thead>
                 <tbody>
-                    <Tbodyshop nary={p.n} cval={p.c}></Tbodyshop>
+                    <Tbodyshop nary={p.n} cval={p.c} cart={p.j}></Tbodyshop>
                 </tbody>
             </table>
         </React.Fragment>
