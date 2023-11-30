@@ -117,8 +117,9 @@ function Eachrich() {
     // const chch=(a)=>{
     //     setNary(a)
     // }
-    const[nary,setNary]=React.useState(shdt)
-    const[cval,setCval]=React.useState(0)
+    // const[nary,setNary]=React.useState(shdt)
+    // const[cval,setCval]=React.useState(0)
+    const[seld,setSeld]=React.useState([shdt,5])
     // let nary=shdt
     // let godo
     let val
@@ -129,7 +130,7 @@ function Eachrich() {
             }
         })
         // upcode(nary,tb)
-        setNary(godo)
+        setSeld([godo,5])
         // if (nary.length==0) {
         //     document.querySelector('.tb').innerHTML=`<span>검색결과가 없습니다</span>`
         // }
@@ -144,7 +145,7 @@ function Eachrich() {
                 }
             })
             // upcode(nary,tb)
-            setNary(godo)
+            setSeld([godo,5])
             // if (nary.length==0) {
             //     document.querySelector('.tb').innerHTML=`<span>검색결과가 없습니다</span>`
             // }
@@ -154,34 +155,60 @@ function Eachrich() {
     }
     // console.log(nary,godo)
     const chan=(e)=>{
-        setCval(e.target.value)
+        let cval=e.target.value
+        let temp=seld[0]
         // console.log(e.target.value)
+        if (cval==1) {
+            temp.sort((p,q)=>{return p.id-q.id})
+            // shdt.reverse()
+            // upcode(shdt,tb)
+            
+        }
+        else if (cval==2) {
+            temp.sort((p,q)=>{return p.id-q.id})
+            temp.reverse()
+            // upcode(shdt,tb)
+            
+        }
+        else if (cval==3) {
+            temp.sort((p,q)=>{return p.price-q.price})
+            temp.reverse()
+            // upcode(shdt,tb)
+            
+        }
+        else if (cval==4) {
+            temp.sort((p,q)=>{return p.price-q.price})
+            // shdt.reverse()
+            // upcode(shdt,tb)
+            
+        }
+        setSeld([temp,Number(cval)])
     }
     const rset=()=>{
         location.reload()
     }
     const cart=()=>{}
-    // console.log(document.querySelector('.slt1'))
+    console.log(seld)
     return(
         <React.Fragment>
             <h1>GAME ITEM SHOP</h1>
             <div className="mvbx">
                 <input type="text" id="iptt" name="iptt" onKeyUp={kiss}/>
                 <button className="scbt" onClick={clcl}>검색</button>
-                <select className="slt1" onChange={chan} value={cval}>
+                <select className="slt1" onChange={chan}>
                     <option value="0">option</option>
-                    <option value="new">최신입점순</option>
-                    <option value="old">기존입점순</option>
-                    <option value="high">가격 높은순</option>
-                    <option value="low">가격 낮은순</option>
+                    <option value="1">최신입점순</option>
+                    <option value="2">기존입점순</option>
+                    <option value="3">가격 높은순</option>
+                    <option value="4">가격 낮은순</option>
                 </select>
                 <button className="rsbt" onClick={rset}>리셋</button>
             </div>
             <div className="tb">
-            {nary.length==0&&
+            {seld.length==0&&
             <span>검색결과가 없습니다</span>}
-            {nary.length>0&&
-                <Tabletpc n={nary} c={cval} j={cart}></Tabletpc>
+            {seld.length>0&&
+                <Tabletpc s={seld[0]} j={cart}></Tabletpc>
             }
             </div>
         </React.Fragment>
@@ -191,7 +218,7 @@ ReactDOM.render(<Eachrich></Eachrich>,document.querySelectorAll('.each')[4])
 
 // ReactDOM.render(<Shopping></Shopping>,document.querySelector('.mvbx'))
 function Tbodyshop(p) {
-    let seld=p.nary
+    let seld=p.seld
     // p.nary=p.chop
     // console.log(p.cval)
     const cart=()=>{p.cart()}
@@ -199,31 +226,8 @@ function Tbodyshop(p) {
 function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
-    if (p.cval=='new') {
-        seld=shdt.sort((p,q)=>{return p.id-q.id})
-        // shdt.reverse()
-        // upcode(shdt,tb)
-        
-    }
-    if (p.cval=='old') {
-        shdt.sort((p,q)=>{return p.id-q.id})
-        seld=shdt.reverse()
-        // upcode(shdt,tb)
-        
-    }
-    if (p.cval=='high') {
-        shdt.sort((p,q)=>{return p.price-q.price})
-        seld=shdt.reverse()
-        // upcode(shdt,tb)
-        
-    }
-    if (p.cval=='low') {
-        seld=shdt.sort((p,q)=>{return p.price-q.price})
-        // shdt.reverse()
-        // upcode(shdt,tb)
-        
-    }
-    console.log($('.slt1').val())
+    
+    // console.log($('.slt1').val())
     return(
         <React.Fragment>
             {seld.map((a)=>
@@ -250,7 +254,7 @@ function Tabletpc(p) {
                     </tr>
                 </thead>
                 <tbody>
-                    <Tbodyshop nary={p.n} cval={p.c} cart={p.j}></Tbodyshop>
+                    <Tbodyshop seld={p.s} cart={p.j}></Tbodyshop>
                 </tbody>
             </table>
         </React.Fragment>
