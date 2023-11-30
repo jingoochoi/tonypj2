@@ -208,7 +208,11 @@ function Eachrich() {
             {seld.length==0&&
             <span>검색결과가 없습니다</span>}
             {seld.length>0&&
+            <React.Fragment>
                 <Tabletpc s={seld[0]} j={cart}></Tabletpc>
+                <br />
+                <b style={{position:'absolute',bottom:0,left:'50%',transform:'translateX(-50%)'}}>이미지 클릭 시 카트에 추가됩니다.</b>
+            </React.Fragment>
             }
             </div>
         </React.Fragment>
