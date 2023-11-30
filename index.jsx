@@ -161,7 +161,7 @@ function Eachrich() {
         location.reload()
     }
     const cart=()=>{}
-    console.log(nary)
+    // console.log(document.querySelector('.slt1'))
     return(
         <React.Fragment>
             <h1>GAME ITEM SHOP</h1>
@@ -223,7 +223,7 @@ function numberWithCommas(x) {
         // upcode(shdt,tb)
         
     }
-    
+    console.log($('.slt1').val())
     return(
         <React.Fragment>
             {seld.map((a)=>
@@ -246,7 +246,7 @@ function Tabletpc(p) {
                     <tr>
                         <th>이미지</th>
                         <th>상품명</th>
-                        <th>가격</th>
+                        <th>가격(원)</th>
                     </tr>
                 </thead>
                 <tbody>
