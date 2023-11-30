@@ -256,16 +256,3 @@ function Tabletpc(p) {
         </React.Fragment>
     )
 }
-// upcode(shdt,document.querySelector('.tb'))
-// ReactDOM.render(<Tabletpc></Tabletpc>,document.querySelector('.tb'))
-// ReactDOM.render(upcode(),document.querySelectorAll('.each')[4])
-const slt1=document.querySelector('.slt1')
-const tb=document.querySelector('.tb')
-const iptt=document.querySelector('#iptt')
-const scbt=document.querySelector('.scbt')
-const rsbt=document.querySelector('.rsbt')
-// scbt.addEventListener('click',clcl)
-
-// slt1.addEventListener('change',char)
-
-// rsbt.addEventListener('click',rset)
