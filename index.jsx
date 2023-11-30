@@ -188,7 +188,7 @@ function Eachrich() {
         location.reload()
     }
     const cart=()=>{}
-    console.log(seld)
+    // console.log(seld)
     return(
         <React.Fragment>
             <h1>GAME ITEM SHOP</h1>
