@@ -195,6 +195,10 @@ function Tbodyshop(p) {
     // p.nary=p.chop
     // console.log(p.cval)
     const cart=()=>{p.cart()}
+    //정규식함수(숫자 세자리마다 콤마해주는 기능)
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
     if (p.cval=='new') {
         seld=shdt.sort((p,q)=>{return p.id-q.id})
         // shdt.reverse()
@@ -226,7 +230,7 @@ function Tbodyshop(p) {
                 <tr>
                     <td><img src={a.img} alt="shop image" style={{cursor:'pointer'}} onClick={cart}/></td>
                     <td>{a.name}</td>
-                    <td>{a.price}</td>
+                    <td>{numberWithCommas(a.price)}</td>
                 </tr>
             )}
             
