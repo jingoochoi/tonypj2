@@ -60,6 +60,7 @@ table tbody tr td:nth-child(2){max-width: 330px;padding: 10px;}
 .carb{text-align: right;width: 90%;}
 .carb span{font-size: 3rem;cursor: pointer;}
 .foot{width: 100%;height: 100px;position: fixed;bottom: 0;background-color: #ddd;}
+address{font-style: normal;display: inline-block;position: absolute;top: 0;left: 50%;transform: translateX(-50%);}
 @media screen and (max-width:500px) {
     html{height: 100vh;overflow: hidden;}
     .menu{display: none;}
