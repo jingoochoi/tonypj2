@@ -98,6 +98,24 @@ const shdt=[
     {id:3,img:'https://iprint.express/media/catalog/product/cache/69fb0ceebfc362df676aec7508ef3a24/i/p/iprint_express_wheel_of_fortune_stand1200_1200.jpg',name:'대형 뽑기 룰렛판 행사용 돌려돌려 돌림판',price:'23230'},
     {id:4,img:'https://media.kohlsimg.com/is/image/kohls/3400791?wid=600&hei=600&op_sharpen=1',name:'슬롯 머신 저금통 중형사이즈 복불복게임',price:'10000'},
 ]
+function Cartride() {
+    return(
+        <React.Fragment>
+            <h1>CART(WISHLIST)</h1>
+            <div className="carb"><span>x</span></div>
+            <table>
+                <thead>
+                    <th>이미지</th>
+                    <th>상품명</th>
+                    <th>수량</th>
+                    <th>가격</th>
+                </thead>
+                <tbody></tbody>
+                <tfoot><td colSpan={4}>가격 총합계:</td></tfoot>
+            </table>
+        </React.Fragment>
+    )
+}
 function Eachrich() {
     const[seld,setSeld]=React.useState([shdt,5])
     let val
@@ -189,6 +207,9 @@ function Eachrich() {
                 <b style={{position:'absolute',bottom:0,left:'50%',transform:'translateX(-50%)'}}>이미지 클릭 시 카트에 추가됩니다.</b>
             </React.Fragment>
             }
+            </div>
+            <div className="cart">
+            <Cartride></Cartride>
             </div>
         </React.Fragment>
     )
