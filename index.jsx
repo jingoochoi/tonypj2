@@ -74,7 +74,8 @@ li.forEach((a,b)=>{
 beef.forEach((a,b)=>{
     a.onclick=function () {
         page=b
-        window.scrollTo(window.innerWidth*page,0)
+        // window.scrollTo(window.innerWidth*page,0)
+        $('.main').css({left:page*-100+'%'})
         // console.log(page)
         $('.bgmn').slideUp(300)
         if (page==b) {
