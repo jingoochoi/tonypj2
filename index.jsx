@@ -44,7 +44,14 @@ function Code(a) {
 ReactDOM.render(<Code num="0"/>,document.querySelectorAll('.game')[0])
 ReactDOM.render(<Code num="1"/>,document.querySelectorAll('.game')[1])
 ReactDOM.render(<Code num="2"/>,document.querySelectorAll('.game')[2])
+$('.mobx span').click(function () {
+    $('.bgmn').slideDown(300)
+})
+$('.dgbt span').click(function () {
+    $('.bgmn').slideUp(300)
+})
 const li=document.querySelectorAll('.li')
+const beef=document.querySelectorAll('.beef')
 let page=0
 li.forEach((a,b)=>{
     a.onclick=function () {
@@ -64,6 +71,26 @@ li.forEach((a,b)=>{
         open(url2)
     })
 })
+beef.forEach((a,b)=>{
+    a.onclick=function () {
+        page=b
+        window.scrollTo(window.innerWidth*page,0)
+        $('.bgmn').slideUp(300)
+        if (page==b) {
+            // 
+            $('title').html($('.each h1')[b].innerHTML)
+        }else $('title').remove($('.each h1')[b].innerHTML)
+      
+    }
+    $('.bb').eq(b).click(function () {
+        let url1=$('.li').eq(b+1).html()
+        // console.log(url)
+        let url2='tony.html?game='+url1
+        console.log(url2)
+        open(url2)
+    })
+})
+
 
 const shdt=[
     {id:1,img:'https://m.media-amazon.com/images/I/81pfZixiDrL.jpg',name:'국제규격 마카오 카지노칩 포커칩 컬러칩 100P 세트',price:'13300'},
@@ -71,57 +98,8 @@ const shdt=[
     {id:3,img:'https://iprint.express/media/catalog/product/cache/69fb0ceebfc362df676aec7508ef3a24/i/p/iprint_express_wheel_of_fortune_stand1200_1200.jpg',name:'대형 뽑기 룰렛판 행사용 돌려돌려 돌림판',price:'23230'},
     {id:4,img:'https://media.kohlsimg.com/is/image/kohls/3400791?wid=600&hei=600&op_sharpen=1',name:'슬롯 머신 저금통 중형사이즈 복불복게임',price:'10000'},
 ]
-// const upcode=function (q,w) {
-//     let hcode=q.map(m=>`<tr>
-//         <td><img src="${m.img}"></td>
-//         <td>${m.name}</td>
-//         <td>${m.price}</td>
-//     </tr>`)
-//     w.innerHTML=`
-        
-//         <table>
-//             <thead>
-//                 <tr>
-//                     <th>이미지</th>
-//                     <th>상품명</th>
-//                     <th>가격(원)</th>
-//                 </tr>
-//             </thead>
-//             <tbody>
-//                 ${hcode.join('')}
-//             </tbody>
-//         </table>
-//     `
-// }
-// console.log(ucode)
-// let lcode=(
-//     <React.Fragment>
-//         <table>
-//             <thead>
-//                 <tr>
-//                     <th>이미지</th>
-//                     <th>상품명</th>
-//                     <th>가격</th>
-//                 </tr>
-//             </thead>
-//             <tbody>
-//                 {upcode()}
-//             </tbody>
-//         </table>
-//     </React.Fragment>
-// )
-// console.log(lcode)
 function Eachrich() {
-    // const ctxt=React.createContext()
-    // const[nary,setNary]=React.useState(shdt)
-    // const chch=(a)=>{
-    //     setNary(a)
-    // }
-    // const[nary,setNary]=React.useState(shdt)
-    // const[cval,setCval]=React.useState(0)
     const[seld,setSeld]=React.useState([shdt,5])
-    // let nary=shdt
-    // let godo
     let val
     const clcl=()=>{
         let godo=shdt.filter(o=>{
@@ -131,9 +109,6 @@ function Eachrich() {
         })
         // upcode(nary,tb)
         setSeld([godo,5])
-        // if (nary.length==0) {
-        //     document.querySelector('.tb').innerHTML=`<span>검색결과가 없습니다</span>`
-        // }
         iptt.value=''
         // console.log(nary)
     }
