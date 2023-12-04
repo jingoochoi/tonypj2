@@ -67,7 +67,7 @@ li.forEach((a,b)=>{
         let url1=$('.li').eq(b+1).html()
         // console.log(url)
         let url2='tony.html?game='+url1
-        console.log(url2)
+        // console.log(url2)
         open(url2)
     })
 })
@@ -87,7 +87,7 @@ beef.forEach((a,b)=>{
         // console.log(url)
         let url2='tony.html?game='+url1
         console.log(url2)
-        open(url2)
+        // open(url2)
     })
 })
 
