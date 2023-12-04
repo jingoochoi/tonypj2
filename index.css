@@ -82,5 +82,6 @@ address{font-style: normal;display: inline-block;position: absolute;top: 0;left:
     table tbody td:first-of-type
     {display: none;}
     table img{display: none;}
-    .foot{top: calc(100vh - 100px);}
+    .foot{top: calc(100vh - 100px);width: 100vw;}
+    address{font-size: 13px;}
 }
