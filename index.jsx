@@ -99,10 +99,13 @@ const shdt=[
     {id:4,img:'https://media.kohlsimg.com/is/image/kohls/3400791?wid=600&hei=600&op_sharpen=1',name:'슬롯 머신 저금통 중형사이즈 복불복게임',price:'10000'},
 ]
 function Cartride() {
+    const dada=function () {
+        $('.cart').animate({right:'-40vw'},300,'linear')
+    }
     return(
         <React.Fragment>
             <h1>CART(WISHLIST)</h1>
-            <div className="carb"><span>x</span></div>
+            <div className="carb"><span onClick={dada}>x</span></div>
             <table>
                 <thead>
                     <th>이미지</th>
@@ -180,7 +183,9 @@ function Eachrich() {
     const rset=()=>{
         location.reload()
     }
-    const cart=()=>{}
+    const cart=()=>{
+        $('.cart').animate({right:0},300,'linear')
+    }
     // console.log(seld)
     return(
         <React.Fragment>
