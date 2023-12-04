@@ -142,9 +142,6 @@ function Eachrich() {
             })
             // upcode(nary,tb)
             setSeld([godo,5])
-            // if (nary.length==0) {
-            //     document.querySelector('.tb').innerHTML=`<span>검색결과가 없습니다</span>`
-            // }
             iptt.value=''
             // console.log(nary)
         }
@@ -156,27 +153,17 @@ function Eachrich() {
         // console.log(e.target.value)
         if (cval==1) {
             temp.sort((p,q)=>{return p.id-q.id})
-            // shdt.reverse()
-            // upcode(shdt,tb)
-            
         }
         else if (cval==2) {
             temp.sort((p,q)=>{return p.id-q.id})
-            temp.reverse()
-            // upcode(shdt,tb)
-            
         }
         else if (cval==3) {
             temp.sort((p,q)=>{return p.price-q.price})
             temp.reverse()
             // upcode(shdt,tb)
-            
         }
         else if (cval==4) {
             temp.sort((p,q)=>{return p.price-q.price})
-            // shdt.reverse()
-            // upcode(shdt,tb)
-            
         }
         setSeld([temp,Number(cval)])
     }
