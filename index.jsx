@@ -75,6 +75,7 @@ beef.forEach((a,b)=>{
     a.onclick=function () {
         page=b
         window.scrollTo(window.innerWidth*page,0)
+        // console.log(page)
         $('.bgmn').slideUp(300)
         if (page==b) {
             // 
