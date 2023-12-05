@@ -40,7 +40,7 @@
         .slbt{position: absolute;bottom: 40%;left: 50%;transform: translateX(-50%);}
         .srst{font-size: 30%;position: absolute;bottom: 20%;left: 50%;transform: translateX(-50%);}
         @media screen and (max-width:500px) {
-            .four{display: flex;width: 400%;height: 100vh;}
+            .four{display: flex;width: 400%;height: 100vh;position: fixed;}
             span{display: none;}
             .each:nth-child(2),
             .each:nth-child(3),
@@ -117,7 +117,7 @@
                 if (prmt=='roulette') {
                     window.scrollTo(window.innerWidth,0)
                     if (window.matchMedia('(max-width:500px)').matches) {
-                        document.querySelector('.four').style.left='-100&'
+                        document.querySelector('.four').style.left='-100%'
                     }
                 }
                 if (prmt=='slotmachine') {
