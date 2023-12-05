@@ -50,6 +50,9 @@ $('.mobx span').click(function () {
 $('.dgbt span').click(function () {
     $('.bgmn').slideUp(300)
 })
+if (window.matchMedia('(max-width:500px)').matches) {
+    document.body.style.overflow='hidden'
+}
 const li=document.querySelectorAll('.li')
 const beef=document.querySelectorAll('.beef')
 let page=0
