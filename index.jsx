@@ -107,6 +107,9 @@ function Cartride() {
     const dada=function () {
         $('.cart').animate({right:'-40vw'},300,'linear')
     }
+    function numberWithCommas(x) {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
     return(
         <React.Fragment>
             <h1>CART(WISHLIST)</h1>
@@ -119,7 +122,15 @@ function Cartride() {
                     <th>수량</th>
                     <th>가격</th>
                 </thead>
-                <tbody></tbody>
+                <tbody>
+                    <tr>
+                        <td><img src="https://m.media-amazon.com/images/I/81pfZixiDrL.jpg" alt="image" style={{width:'60px'}}/></td>
+                        <td>국제규격 마카오 카지노칩 포커칩 컬러칩 100P 세트</td>
+                        <td>{numberWithCommas(13300)}</td>
+                        <td>x<input type="number" name="numb" id="numb" style={{width:'30px'}} min={1}/>=</td>
+                        <td>{numberWithCommas(13300)}</td>
+                    </tr>
+                </tbody>
                 <tfoot>
                     <td colSpan={4}>가격총합계</td>
                     <td>가격총합계</td>
