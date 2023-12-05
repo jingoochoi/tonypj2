@@ -107,7 +107,7 @@
         let prmt=location.href
         prmt=prmt.split('?')[1]
         prmt=prmt.split('=')[1]
-        alert(prmt)
+        // alert(prmt)
         document.addEventListener('DOMContentLoaded',kdft)
         
         let chip=document.querySelector('.chip')
@@ -119,18 +119,21 @@
                     if (window.matchMedia('(max-width:500px)').matches) {
                         document.querySelector('.four').style.left='-100%'
                     }
+                    alert(this)
                 }
                 if (prmt=='slotmachine') {
                     window.scrollTo(window.innerWidth,window.innerHeight)
                     if (window.matchMedia('(max-width:500px)').matches) {
                         document.querySelector('.four').style.left='-300%'
                     }
+                    alert(this)
                 }
                 if (prmt=='blackjack') {
                     window.scrollTo(0,window.innerHeight)
                     if (window.matchMedia('(max-width:500px)').matches) {
                         document.querySelector('.four').style.left='-200%'
                     }
+                    alert(this)
                 }
                 $('title').text(prmt)
         }
