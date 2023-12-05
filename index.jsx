@@ -115,11 +115,15 @@ function Cartride() {
                 <thead>
                     <th>이미지</th>
                     <th>상품명</th>
+                    <th>단가</th>
                     <th>수량</th>
                     <th>가격</th>
                 </thead>
                 <tbody></tbody>
-                <tfoot><td colSpan={4}>가격 총합계:</td></tfoot>
+                <tfoot>
+                    <td colSpan={4}>가격총합계</td>
+                    <td>가격총합계</td>
+                </tfoot>
             </table>
         </React.Fragment>
     )
