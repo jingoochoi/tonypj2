@@ -115,6 +115,9 @@
         function kdft() {
                 if (prmt=='roulette') {
                     window.scrollTo(window.innerWidth,0)
+                    if (window.matchMedia('(max-width:500px)').matches) {
+                        $('.four').css({left:page*-100+'%'})
+                    }
                 }
                 if (prmt=='slotmachine') {
                     window.scrollTo(window.innerWidth,window.innerHeight)
