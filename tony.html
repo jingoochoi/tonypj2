@@ -40,6 +40,7 @@
         .slbt{position: absolute;bottom: 40%;left: 50%;transform: translateX(-50%);}
         .srst{font-size: 30%;position: absolute;bottom: 20%;left: 50%;transform: translateX(-50%);}
         @media screen and (max-width:500px) {
+            .four{display: flex;}
             span{display: none;}
             .each:nth-child(2),
             .each:nth-child(3),
@@ -122,14 +123,13 @@
                 if (prmt=='slotmachine') {
                     window.scrollTo(window.innerWidth,window.innerHeight)
                     if (window.matchMedia('(max-width:500px)').matches) {
-                        document.querySelector('.four').style.left='-100%'
-                        document.querySelector('.four').style.top='-100%'
+                        document.querySelector('.four').style.left='-300%'
                     }
                 }
                 if (prmt=='blackjack') {
                     window.scrollTo(0,window.innerHeight)
                     if (window.matchMedia('(max-width:500px)').matches) {
-                        document.querySelector('.four').style.top='-100%'
+                        document.querySelector('.four').style.left='-200%'
                     }
                 }
                 $('title').text(prmt)
