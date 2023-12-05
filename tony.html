@@ -121,9 +121,16 @@
                 }
                 if (prmt=='slotmachine') {
                     window.scrollTo(window.innerWidth,window.innerHeight)
+                    if (window.matchMedia('(max-width:500px)').matches) {
+                        document.querySelector('.four').style.left='-100%'
+                        document.querySelector('.four').style.top='-100%'
+                    }
                 }
                 if (prmt=='blackjack') {
                     window.scrollTo(0,window.innerHeight)
+                    if (window.matchMedia('(max-width:500px)').matches) {
+                        document.querySelector('.four').style.top='-100%'
+                    }
                 }
                 $('title').text(prmt)
         }
