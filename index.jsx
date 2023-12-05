@@ -52,7 +52,7 @@ $('.dgbt span').click(function () {
 })
 if (window.matchMedia('(max-width:500px)').matches) {
     document.body.style.overflow='hidden'
-}
+}//uneffective
 const li=document.querySelectorAll('.li')
 const beef=document.querySelectorAll('.beef')
 let page=0
