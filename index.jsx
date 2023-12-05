@@ -128,7 +128,7 @@ function Cartride() {
                         <td><img src="https://m.media-amazon.com/images/I/81pfZixiDrL.jpg" alt="image" style={{width:'60px'}}/></td>
                         <td>국제규격 마카오 카지노칩 포커칩 컬러칩 100P 세트</td>
                         <td className="onep">{numberWithCommas(13300)}</td>
-                        <td>x<input type="number" name="numb" id="numb" style={{width:'30px'}} min={1} onChange={e=>{$('.pp').text(numberWithCommas(e.target.value*13300))}}/></td>
+                        <td>x<input type="number" name="numb" id="numb" style={{width:'30px'}} min={1} defaultValue={1} onChange={e=>{$('.pp').text(numberWithCommas(e.target.value*13300))}}/></td>
                         <td className="pp">{numberWithCommas(13300)}</td>
                     </tr>
                 </tbody>
