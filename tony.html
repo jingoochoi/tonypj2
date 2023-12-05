@@ -116,7 +116,7 @@
                 if (prmt=='roulette') {
                     window.scrollTo(window.innerWidth,0)
                     if (window.matchMedia('(max-width:500px)').matches) {
-                        $('.four').css({left:'-100%'})
+                        document.querySelector('.four').style.left='-100%'
                     }
                 }
                 if (prmt=='slotmachine') {
