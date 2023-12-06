@@ -103,14 +103,22 @@ const shdt=[
     {id:3,img:'https://iprint.express/media/catalog/product/cache/69fb0ceebfc362df676aec7508ef3a24/i/p/iprint_express_wheel_of_fortune_stand1200_1200.jpg',name:'대형 뽑기 룰렛판 행사용 돌려돌려 돌림판',price:'23230'},
     {id:4,img:'https://media.kohlsimg.com/is/image/kohls/3400791?wid=600&hei=600&op_sharpen=1',name:'슬롯 머신 저금통 중형사이즈 복불복게임',price:'10000'},
 ]
-function Cartride() {
+function Cartride(p) {
+    let lost=JSON.parse(localStorage.getItem('wish'))
+    if (p.c==1) {
+        lost=JSON.parse(localStorage.getItem('wish'))
+    }
     const dada=function () {
         $('.cart').animate({right:'-40vw'},300,'linear')
     }
     function numberWithCommas(x) {
         return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
-    // console.log($('input[type="number" i]'))
+    function outCommas(x) {
+        return x.toString().replace(",", "");
+    }
+    // console.log($('.pp'))
+    // console.log(lost)
     return(
         <React.Fragment>
             <h1>CART(WISHLIST)</h1>
@@ -124,19 +132,20 @@ function Cartride() {
                     <th>가격</th>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td><img src="https://m.media-amazon.com/images/I/81pfZixiDrL.jpg" alt="image" style={{width:'60px'}}/></td>
-                        <td>국제규격 마카오 카지노칩 포커칩 컬러칩 100P 세트</td>
-                        <td className="onep">{numberWithCommas(13300)}</td>
-                        <td>x<input type="number" name="numb" id="numb" style={{width:'30px'}} min={1} defaultValue={1} onChange={e=>{$('.pp').text(numberWithCommas(e.target.value*13300))}}/></td>
-                        <td className="pp">{numberWithCommas(13300)}</td>
-                    </tr>
+                    {lost.map(a=><tr>
+                        <td><img src={a.img} alt="image" style={{width:'60px',cursor:'pointer'}} onClick={(e)=>{$(e.currentTarget).parent().parent().css({display:'none'})}}/></td>
+                        <td>{a.name}</td>
+                        <td className="onep">{numberWithCommas(a.price)}</td>
+                        <td>x<input type="number" name="numb" id="numb" style={{width:'30px'}} min={1} defaultValue={1} onChange={e=>{$(e.currentTarget).parent().next().text(numberWithCommas(e.target.value*a.price))}}/>=</td>
+                        <td className="pp" onSeeked={e=>console.log(e.target.innerHTML)}>{numberWithCommas(a.price)}</td>
+                    </tr>)}
                 </tbody>
                 <tfoot>
                     <td colSpan={4}>가격총합계</td>
-                    <td>가격총합계</td>
+                    <td>{outCommas(numberWithCommas(13300))}</td>
                 </tfoot>
             </table>
+            <b style={{display:'block',marginTop:'100px'}}>이미지 클릭 시 지워집니다.</b>
         </React.Fragment>
     )
 }
@@ -192,7 +201,7 @@ function Eachrich() {
         location.reload()
     }
     const cart=()=>{
-        $('.cart').animate({right:0},300,'linear')
+        
     }
     // console.log(seld)
     return(
@@ -221,9 +230,7 @@ function Eachrich() {
             </React.Fragment>
             }
             </div>
-            <div className="cart">
-            <Cartride></Cartride>
-            </div>
+            
         </React.Fragment>
     )
 }
@@ -234,13 +241,41 @@ function Tbodyshop(p) {
     let seld=p.seld
     // p.nary=p.chop
     // console.log(p.cval)
-    const cart=()=>{p.cart()}
+    const[cars,setCars]=React.useState(0)
+    const[ctcg,setCtcg]=React.useState(0)
+    const cart=function(e){
+        // console.log(e.target)
+        $('.cart').animate({right:0},300,'linear')
+        const dtdt=shdt.find((a=>{
+            if (a.img==e.target.src) {
+                return true
+            }
+        }))
+        // console.log(dtdt)
+        if (!localStorage.getItem('wish')) {
+            let tomp=[]
+            tomp.push(dtdt)
+            localStorage.setItem('wish',JSON.stringify(tomp))
+        }else{
+            let tong=localStorage.getItem('wish')
+            tong=JSON.parse(tong)
+            tong.push(dtdt)
+            localStorage.setItem('wish',JSON.stringify(tong))
+        }
+        setCars(1)
+        setCtcg(1)
+        setTimeout(() => {
+            setCtcg(0)
+        }, 30);
+        // setCtcg(1)
+    }
     //정규식함수(숫자 세자리마다 콤마해주는 기능)
 function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
     
-    // console.log($('.slt1').val())
+    console.log($('#text'))
+    
     return(
         <React.Fragment>
             {seld.map((a)=>
@@ -250,7 +285,12 @@ function numberWithCommas(x) {
                     <td>{numberWithCommas(a.price)}</td>
                 </tr>
             )}
-            
+            {
+                cars&&
+            <div className="cart">
+            <Cartride c={ctcg}></Cartride>
+            </div>
+            }
         </React.Fragment>
     )
 }
