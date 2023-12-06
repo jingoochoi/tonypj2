@@ -121,6 +121,7 @@ function Cartride(p) {
         $(e.target).parent().parent().css({display:'none'})
     }
     let comb=[]
+    const result = comb.reduce((a,b)=>{return a+b},0)
     // console.log($('.pp'))
     // console.log(lost)
     return(
@@ -140,13 +141,13 @@ function Cartride(p) {
                         <td><img src={a.img} alt="image" style={{width:'60px',cursor:'pointer'}} onClick={(e)=>choo(e)}/></td>
                         <td>{a.name}</td>
                         <td className="onep">{numberWithCommas(a.price)}</td>
-                        <td>x<input type="number" name="numb" id="numb" style={{width:'30px'}} min={1} defaultValue={1} onChange={e=>{$(e.currentTarget).parent().next().text(numberWithCommas(e.target.value*a.price))}}/>=</td>
+                        <td>x<input type="number" name="numb" id="numb" style={{width:'30px'}} min={1} defaultValue={1} onChange={e=>{$(e.currentTarget).parent().next().text(numberWithCommas(e.target.value*a.price));comb.push(Number(a.price));console.log(comb);$('tfoot td:last').text(numberWithCommas(comb.reduce((a,b)=>{return a+b},0)))}}/>=</td>
                         <td className="pp" onSeeked={e=>console.log(e.target.innerHTML)}>{numberWithCommas(a.price)}</td>
                     </tr>)}
                 </tbody>
                 <tfoot style={{borderTop:'1px solid black'}}>
                     <td colSpan={4}>가격총합계</td>
-                    <td>{console.log(outCommas($('.pp').text()))}</td>
+                    <td>{0}</td>
                 </tfoot>
             </table>
             <b style={{display:'block',marginTop:'100px'}}>이미지 클릭 시 지워집니다.</b>
