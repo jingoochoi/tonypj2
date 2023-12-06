@@ -117,6 +117,12 @@ function Cartride(p) {
     function outCommas(x) {
         return x.toString().replace(",", "");
     }
+    function choo(e) {
+        $(e.target).parent().parent().css({display:'none'})
+    }
+    function nbnb(e) {
+        // 
+    }
     // console.log($('.pp'))
     // console.log(lost)
     return(
@@ -133,14 +139,14 @@ function Cartride(p) {
                 </thead>
                 <tbody>
                     {lost.map(a=><tr>
-                        <td><img src={a.img} alt="image" style={{width:'60px',cursor:'pointer'}} onClick={(e)=>{$(e.currentTarget).parent().parent().css({display:'none'})}}/></td>
+                        <td><img src={a.img} alt="image" style={{width:'60px',cursor:'pointer'}} onClick={(e)=>choo(e)}/></td>
                         <td>{a.name}</td>
                         <td className="onep">{numberWithCommas(a.price)}</td>
                         <td>x<input type="number" name="numb" id="numb" style={{width:'30px'}} min={1} defaultValue={1} onChange={e=>{$(e.currentTarget).parent().next().text(numberWithCommas(e.target.value*a.price))}}/>=</td>
                         <td className="pp" onSeeked={e=>console.log(e.target.innerHTML)}>{numberWithCommas(a.price)}</td>
                     </tr>)}
                 </tbody>
-                <tfoot>
+                <tfoot style={{borderTop:'1px solid black'}}>
                     <td colSpan={4}>가격총합계</td>
                     <td>{outCommas(numberWithCommas(13300))}</td>
                 </tfoot>
@@ -259,7 +265,13 @@ function Tbodyshop(p) {
         }else{
             let tong=localStorage.getItem('wish')
             tong=JSON.parse(tong)
-            tong.push(dtdt)
+            let xval=1
+            tong.forEach(a=>{
+                if (a.img==dtdt.img) {
+                    xval=0
+                }
+            })
+            if(xval)tong.push(dtdt)
             localStorage.setItem('wish',JSON.stringify(tong))
         }
         setCars(1)
@@ -269,16 +281,18 @@ function Tbodyshop(p) {
         }, 30);
         // setCtcg(1)
     }
+    if(cars)$('.cart').animate({right:0},300,'linear')
     //정규식함수(숫자 세자리마다 콤마해주는 기능)
 function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
     
-    console.log($('#text'))
+    // console.log($('#text'))
     
     return(
         <React.Fragment>
-            {seld.map((a)=>
+            {
+            seld.map((a)=>
                 <tr>
                     <td><img src={a.img} alt="shop image" style={{cursor:'pointer'}} onClick={cart}/></td>
                     <td>{a.name}</td>
@@ -286,7 +300,7 @@ function numberWithCommas(x) {
                 </tr>
             )}
             {
-                cars&&
+                cars==1&&
             <div className="cart">
             <Cartride c={ctcg}></Cartride>
             </div>

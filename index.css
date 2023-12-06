@@ -54,7 +54,7 @@ html{overflow: hidden;}
 table{margin: 0 auto;text-align: center;border-collapse: collapse;margin-top: 30px;}
 table img{width: 100px;max-height: 130px;}
 table tr td{border-top: 1px solid #000;padding-top: calc(2px*2);}
-table tr:last-child td{border-bottom: 1px solid black;}
+/* table tr:last-child td{border-bottom: 1px solid black;} */
 table tbody tr td:nth-child(2){max-width: 330px;padding: 10px;}
 .cart{background-color: #ffffff77;position: absolute;top: -30%;right: -40vw;width: 40vw;height: 100vh;}
 .carb{text-align: right;width: 90%;}
