@@ -120,9 +120,7 @@ function Cartride(p) {
     function choo(e) {
         $(e.target).parent().parent().css({display:'none'})
     }
-    function nbnb(e) {
-        // 
-    }
+    let comb=[]
     // console.log($('.pp'))
     // console.log(lost)
     return(
@@ -148,7 +146,7 @@ function Cartride(p) {
                 </tbody>
                 <tfoot style={{borderTop:'1px solid black'}}>
                     <td colSpan={4}>가격총합계</td>
-                    <td>{0}</td>
+                    <td>{console.log(outCommas($('.pp').text()))}</td>
                 </tfoot>
             </table>
             <b style={{display:'block',marginTop:'100px'}}>이미지 클릭 시 지워집니다.</b>
