@@ -148,7 +148,7 @@ function Cartride(p) {
                 </tbody>
                 <tfoot style={{borderTop:'1px solid black'}}>
                     <td colSpan={4}>가격총합계</td>
-                    <td>{outCommas(numberWithCommas(13300))}</td>
+                    <td>{0}</td>
                 </tfoot>
             </table>
             <b style={{display:'block',marginTop:'100px'}}>이미지 클릭 시 지워집니다.</b>
