@@ -128,13 +128,17 @@ function Cartride(p) {
             if(lost[i]==bval){
                 lost.splice(i,1)
                 i--
+                $(e.target).parent().parent().remove()
             }
         }
-        $(e.target).parent().parent().css({display:'none'})
         localStorage.setItem('wish',JSON.stringify(lost))
-        lost=JSON.parse(localStorage.getItem('wish'))
-        console.log(p.c)
         p.c=1
+        if (p.c==1) {
+            lost=JSON.parse(localStorage.getItem('wish'))
+        }
+        setTimeout(() => {
+            p.c=0
+        }, 30);
     }
     const result = comb.reduce((a,b)=>{return a+b},0)
     // console.log($('.pp'))
@@ -153,11 +157,11 @@ function Cartride(p) {
                 </thead>
                 <tbody>
                     {lost.map(a=><tr>
-                        <td><img src={a.img} alt="image" style={{width:'60px',cursor:'pointer'}} onClick={(e)=>{choo(e);for(let i=0;i<comb.length;i++){if(comb[i]==Number(a.price)){comb.splice(i,1);i--}};console.log(comb);$('tfoot td:last').text(numberWithCommas(comb.reduce((a,b)=>{return a+b},0)))}}/></td>
+                        <td><img src={a.img} alt="image" style={{width:'60px',cursor:'pointer'}} onClick={(e)=>{choo(e);for(let i=0;i<comb.length;i++){if(comb[i]==Number(a.price)){comb.splice(i,1);i--}};$('tfoot td:last').text(numberWithCommas(comb.reduce((a,b)=>{return a+b},0)));let tt=0;document.querySelectorAll('.pp').forEach(a=>{tt=tt+Number(outCommas(a.innerHTML));$('tfoot td:last').text(numberWithCommas(tt))});}}/></td>
                         <td>{a.name}</td>
                         <td className="onep">{numberWithCommas(a.price)}</td>
-                        <td>x<input type="number" name="numb" id="numb" style={{width:'30px'}} min={0} defaultValue={0} onFocus={e=>{e.currentTarget.blur()}} onChange={e=>{console.log(e.currentTarget);$(e.currentTarget).parent().next().text(numberWithCommas(e.target.value*a.price));if(e.currentTarget.stepDown=='')comb.push(Number(a.price));console.log(comb);$('tfoot td:last').text(numberWithCommas(comb.reduce((a,b)=>{return a+b},0)))}}/>=</td>
-                        <td className="pp" onSeeked={e=>console.log(e.target.innerHTML)}>{0}</td>
+                        <td>x<input type="number" name="numb" id="numb" style={{width:'30px'}} min={0} defaultValue={0} onFocus={e=>{e.currentTarget.blur()}} onChange={e=>{$(e.currentTarget).parent().next().text(numberWithCommas(e.currentTarget.value*a.price));let tt=0;document.querySelectorAll('.pp').forEach(a=>{tt=tt+Number(outCommas(a.innerHTML));$('tfoot td:last').text(numberWithCommas(tt))});}}/>=</td>
+                        <td className="pp" onInput={e=>console.log(e.currentTarget.innerHTML)}>0</td>
                     </tr>)}
                 </tbody>
                 <tfoot style={{borderTop:'1px solid black'}}>
