@@ -283,14 +283,24 @@ function Tbodyshop(p) {
         }else{
             let tong=localStorage.getItem('wish')
             tong=JSON.parse(tong)
-            let xval=1
-            tong.forEach(a=>{
+            let chil=tong.find(a=>{
                 if (a.img==dtdt.img) {
-                    xval=0
+                    return true
                 }
             })
-            if(xval)tong.push(dtdt)
-            localStorage.setItem('wish',JSON.stringify(tong))
+            if (chil) {
+                alert('이미 카트에 존재합니다')
+            }
+            // let xval=1
+            // tong.forEach(a=>{
+            //     if (a.img==dtdt.img) {
+            //         xval=0
+            //     }
+            // })
+            else{
+                tong.push(dtdt)
+                localStorage.setItem('wish',JSON.stringify(tong))
+            }
         }
         setCars(1)
         setCtcg(1)
